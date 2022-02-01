@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+spec: 
+  selector:
+    matchLables:
+      app: myapp
+  replicas: 2
+  template:
+    metadata:
+      matchLables:
+        app: myapp
+      spec:
+        containers:
+        - name: myapp
+          image: talrev/argocd-app:1.0
+          ports:
+          - containerPort: 8080
